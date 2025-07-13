@@ -9,19 +9,17 @@ import random
 window = tk.Tk()
 
 #gridsize = 11
-gridwidth = 25 # number of squares across
-gridheight = 25 # number of squares high
+gridwidth = 39 # number of squares across
+gridheight = 39 # number of squares high
 square_size = 20 # pixels
-solutioncomplexity=0.14
+solutioncomplexity=0.19
 showsolution=True
-wrapvertical=False
-wraphorizontal=False
 splitprobability=0.1
-mazepathattempts=65001
+mazepathattempts=65000
 
 
-mazestart=np.array([0,0])
-mazeend=np.array([4,4])
+mazestart=np.array([15,0])
+mazeend=np.array([25,38])
 
 horizontalwrap=False
 verticalwrap=False
@@ -312,11 +310,11 @@ def hopdistances(cell1, cell2):
     
     distance2= np.linalg.norm(hopcell(cell2, 2)-cell1)
     distance4= np.linalg.norm(hopcell(cell2, 4)-cell1)
-    if(wrapvertical and wraphorizontal):
+    if(verticalwrap and horizontalwrap):
         return [distance0, distance1, distance2, distance3, distance4]
-    elif(wrapvertical):
+    elif(verticalwrap):
         return [distance0, distance1, gridheight*gridwidth, distance3, gridheight*gridwidth]
-    elif(wraphorizontal):
+    elif(horizontalwrap):
         return [distance0, gridheight*gridwidth, distance2, gridheight*gridwidth, distance4]
     else:
         return [distance0, gridheight*gridwidth, gridheight*gridwidth, gridheight*gridwidth, gridheight*gridwidth]
