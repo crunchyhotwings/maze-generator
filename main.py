@@ -17,7 +17,7 @@ showsolution=True
 wrapvertical=False
 wraphorizontal=False
 splitprobability=0.1
-mazepathattempts=65000
+mazepathattempts=65001
 
 
 mazestart=np.array([0,0])
